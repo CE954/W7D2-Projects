@@ -1,6 +1,6 @@
-<h2>Create an account!</h2>
+<h2>Welcome back!</h2>
 
-<form action="<%= users_url %>" method='POST'>
+<form action="<%= session_url %>" method='POST'>
     <input type="hidden" name="authenticity_token" value= '<%= form_authenticity_token %>' >
     <label> Email:
     <input type="text" name="user[email]" placeholder='email' value="<%= @user.email %>">
@@ -10,5 +10,5 @@
     <input type="password" name="user[password]" placeholder='password' value="<%= @user.password %>">
     </label>
     <br>
-    <input type="submit" value="Create Account">
+    <input type="submit" value="Login">
 </form>

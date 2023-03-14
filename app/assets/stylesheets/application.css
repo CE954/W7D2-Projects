@@ -13,3 +13,27 @@
  *= require_tree .
  *= require_self
  */
+@import "reset.css";
+
+header {
+    display: flex;
+    justify-content: center; 
+    padding-bottom: 220px;
+    padding-top: 10px;
+    font-size: 50px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+}

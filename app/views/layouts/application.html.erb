@@ -9,7 +9,45 @@
     <%= stylesheet_link_tag "application" %>
   </head>
 
-  <body>
+<header>
+  <h1> Music App</h1>
+</header>
+
+<nav class='sign_buttons'>
+ <% if logged_in? %>
+    <h2>Welcome back</h2>
+    <form action="<%= session_url %>" method='POST'> 
+     <input type="hidden" name="authenticity_token" value= '<%= form_authenticity_token %>' >
+      <input type="hidden" name="_method" value='DELETE'>
+      <button>Log out</button>
+    </form>
+
+  <% else %>
+    
+    <form action="<%= new_session_url %>" method='GET'> 
+     <input type="hidden" name="authenticity_token" value= '<%= form_authenticity_token %>' >
+      <button>Sign in</button>
+    </form>
+    <br>
+      <form action="<%= new_user_url %>" method='GET'> 
+     <input type="hidden" name="authenticity_token" value= '<%= form_authenticity_token %>' >
+      <button>Sign up</button>
+    </form>
+
+  <% end %>
+</nav>
+
+<body>
     <%= yield %>
-  </body>
+  
+
+  <% if flash[:errors] %>
+    <% flash[:errors].each do |error| %>
+      <li> <%= error %> </li>
+      <br>
+    <% end %>
+  <% end %>
+  
+</body>
+
 </html>
